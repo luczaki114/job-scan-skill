@@ -1,6 +1,7 @@
 ---
 name: api-scan
-description: Fetch job listings from companies with scan_type: api. Supports Greenhouse, Lever, and Ashby public JSON APIs. Runs scripts/scan.py. Returns Job[] to job-scan.
+model: claude-haiku-4-5-20251001
+description: Fetch job listings from companies with scan_type: api. Supports Greenhouse, Lever, and Ashby public JSON APIs. Runs scripts/scan.py and returns a JSON array.
 ---
 
 # api-scan
@@ -27,8 +28,10 @@ endpoint returns 404, treat as a skip and report it.
 
 ## Execution
 
+Run the script and capture **stdout** as the result. Stdout contains only the JSON array.
+
 ```bash
-python .agents/skills/job-scan/api-scan/scripts/scan.py
+python .agents/skills/api-scan/scripts/scan.py
 ```
 
 The script resolves the project root by searching for `config/portals.yml`, so it can be
@@ -36,10 +39,12 @@ run from any working directory.
 
 ## Output
 
-Returns a flat array of job listings. Each entry:
+Returns a flat JSON array of job listings printed to **stdout**. Each entry follows `schemas/job.md`.
 
 ```json
-{ "name": "Senior Frontend Engineer", "url": "https://...", "description": "..." }
+[
+  { "name": "Senior Frontend Engineer", "url": "https://...", "company": "...", "date_added": "..." }
+]
 ```
 
 `description` is plain text (HTML stripped). May be empty string if the API

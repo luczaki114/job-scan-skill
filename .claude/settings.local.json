@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python *)",
+      "WebSearch",
+      "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\lucza\\\\Projects\\\\job-scan skill\\\\.agents\\\\skills\\\\api-scan\\\\references\\\\scripts\")",
+      "Bash(Out-Null)",
+      "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\lucza\\\\Projects\\\\job-scan skill\\\\.agents\\\\skills\\\\websearch-scan\\\\references\")",
+      "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\lucza\\\\Projects\\\\job-scan skill\\\\.agents\\\\skills\\\\playwright-scan\\\\references\")",
+      "PowerShell(New-Item *)"
+    ]
+  }
+}
