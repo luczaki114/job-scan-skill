@@ -1,0 +1,5 @@
+data/*
+!data/.gitkeep
+
+config/meta_profile.md
+config/portals.yml

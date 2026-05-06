@@ -1,0 +1,75 @@
+# Portal Scanner Configuration — [Your Name]
+# Copy this file to portals.yml and fill in your companies and queries.
+# portals.yml is gitignored — this template is what gets committed.
+
+# -- Title filter --
+# At least 1 positive must match AND 0 negatives must match (case-insensitive).
+
+title_filter:
+  positive:
+    - "Frontend Engineer"
+    - "React Engineer"
+    - "UI Engineer"
+    - "Full Stack Engineer"
+  negative:
+    - "Junior"
+    - "Intern"
+    - "Backend Engineer"
+    - "DevOps"
+    - "Machine Learning"
+
+# -- Search queries --
+# Two parallel scan sources — they run independently, not as a fallback chain:
+#
+#   search_queries    — broad discovery sweeps across ATS hosting platforms
+#                       via site: web search. Not tied to any specific company.
+#
+#   tracked_companies — per-company scans. Each company has a scan_type:
+#                         api        → direct JSON API (Greenhouse, Lever, Ashby)
+#                         websearch  → web search scoped to that company's ATS
+#                         playwright → browser automation against careers_url
+
+search_queries:
+  - name: Example — Ashby Senior Frontend
+    query: 'site:jobs.ashbyhq.com "Senior" "Frontend" OR "React" remote'
+    enabled: true
+
+  - name: Example — Greenhouse Senior Frontend
+    query: 'site:boards.greenhouse.io "Senior Frontend Engineer" OR "Senior React Engineer" remote'
+    enabled: true
+
+# -- Tracked companies --
+
+tracked_companies:
+
+  - name: Example Company (Greenhouse)
+    ats: greenhouse
+    scan_type: api
+    careers_url: https://www.example.com/careers
+    api: https://boards-api.greenhouse.io/v1/boards/example/jobs
+    notes: "City, State. One-line description."
+    enabled: true
+
+  - name: Example Company (Lever)
+    ats: lever
+    scan_type: api
+    careers_url: https://www.example.com/careers
+    api: https://api.lever.co/v0/postings/example?mode=json
+    notes: "City, State. One-line description."
+    enabled: true
+
+  - name: Example Company (Ashby)
+    ats: ashby
+    scan_type: api
+    careers_url: https://www.example.com/careers
+    api: https://api.ashbyhq.com/posting-api/job-board/example
+    notes: "City, State. One-line description."
+    enabled: true
+
+  - name: Example Company (Workday)
+    ats: workday
+    scan_type: websearch
+    careers_url: https://www.example.com/careers
+    scan_query: 'site:example.wd1.myworkdayjobs.com "Frontend" OR "React"'
+    notes: "City, State. One-line description."
+    enabled: true
