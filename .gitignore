@@ -3,3 +3,5 @@ data/*
 
 config/meta_profile.md
 config/portals.yml
+
+.claude/settings.local.json
