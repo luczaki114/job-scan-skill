@@ -1,6 +1,8 @@
 ---
 name: job-scan
+model: claude-sonnet-4-6
 description: Router skill. Reads config/portals.yml, groups enabled companies by scan_type and enabled search queries, and dispatches each group to the correct sub-skill or subagent. Merges results, deduplicates by URL, and updates data/jobs.json. Invoke when the user asks to scan for jobs or when jobs.json is empty or stale.
+context: fork
 ---
 
 # job-scan

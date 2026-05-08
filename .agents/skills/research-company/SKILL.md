@@ -1,7 +1,8 @@
 ---
 name: research-company
-model: claude-sonnet-4-6
+model: claude-haiku-4-5-20251001
 description: Researches a single company and writes a structured profile to disk.
+context: fork
 input:
   - meta_profile: config/meta_profile.md
   - company_name: string

@@ -1,5 +1,6 @@
 ---
 name: generate-scoring-rubric
+model: claude-haiku-4-5-20251001
 description: Reads the users meta_profile.md and generates a scoring rubric — a weighted scoring table used by the job evaluation pipeline. Run this skill when there is no data/scoring_rubric.md or when data/meta_profile.md changes.
 input: config/meta_profile.md
 output: A scoring rubric at data/scoring_rubric.md
