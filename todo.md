@@ -15,3 +15,12 @@
 
 - [ ] **validate-json** — validate each agent's returned JSON array against `schemas/job.md` (required fields, correct types, non-empty url). Called by the router after collecting subagent results, before dedup. Returns valid entries and logs/drops invalid ones.
 - [ ] **dedup-jobs** — accept a flat array of job objects, deduplicate by `url`, and return the cleaned array. Replaces the ad-hoc dedup logic currently inlined in the router.
+
+## Project
+
+- [ ] **User-friendly branch** — Create a separate git branch (e.g., `ux/non-technical`) with a redesigned experience for non-technical users:
+  - Replace all agent/skill/pipeline language in instructions with plain English
+  - Claude's communication style shifts to gentle, guided, conversational — no jargon
+  - Config setup (`meta_profile`, portals) becomes a guided Q&A flow, not file editing
+  - No file paths, JSON, YAML, or tool names exposed in user-facing messages
+  - Users are led step-by-step without needing to understand what's under the hood
